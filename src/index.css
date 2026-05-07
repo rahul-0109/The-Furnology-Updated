@@ -1,0 +1,158 @@
+/* --- THE FURNOLOGY: RICH DESIGN SYSTEM --- */
+:root {
+  --color-bg: #080808;
+  --color-surface: #111111;
+  --color-accent: #C9A96E; /* Gold */
+  --color-accent-muted: rgba(201, 169, 110, 0.4);
+  --color-text: #F5EDD6;   /* Cream */
+  --color-text-muted: rgba(245, 237, 214, 0.6);
+  
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  
+  --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
+  --shadow-layered: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* --- RESET & BASE --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Remove overflow: hidden if it was there */
+}
+
+/* --- NAVIGATION --- */
+.nav-link {
+  color: var(--color-text);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s var(--ease-premium);
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.3s var(--ease-premium);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h1 { line-height: 0.9; }
+
+/* --- BUTTONS --- */
+.btn-premium {
+  display: inline-flex;
+  padding: 1.2rem 3rem;
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.5s var(--ease-premium);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(201, 169, 110, 0.2);
+}
+
+/* --- PRODUCT CARDS --- */
+.product-card {
+  transition: transform 0.5s var(--ease-premium);
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+/* --- CONTACT --- */
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.3s var(--ease-premium);
+}
+
+.contact-item:hover {
+  transform: scale(1.1);
+}
+
+.contact-item p {
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent-muted); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-accent); }
+
+/* --- WHATSAPP FLOAT --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 1000;
+  transition: all 0.4s var(--ease-premium);
+}
+
+.whatsapp-float svg {
+  width: 35px;
+  height: 35px;
+}
+
+.whatsapp-float:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  transform: scale(1.1);
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+}
